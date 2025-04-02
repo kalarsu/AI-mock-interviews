@@ -4,7 +4,7 @@ import {getRandomInterviewCover} from "@/lib/utils";
 import {db} from "@/firebase/admin";
 
 export async function GET(){
-    return Response.json({success:true, data: 'Tahnk you'}, {status: 200});
+    return Response.json({success:true, data: 'Thank you'}, {status: 200});
 }
 
 export async function POST(request: Request){
@@ -32,7 +32,7 @@ export async function POST(request: Request){
             type: type,
             level: level,
             techstack: techstack.split(','),
-            questions: JSON.parse(questions),
+            questions: JSON.parse(questions), //parse into an array
             userId: userid,
             finalized: true,
             coverImage: getRandomInterviewCover(),
