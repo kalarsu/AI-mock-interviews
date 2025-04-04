@@ -18,8 +18,6 @@ const Page = async ({params} : RouteParams) => {
         interviewId: interviewId,
         userId: user?.id!,
     });
-    console.log('feedback', feedback);
-    console.log('interview', interview);
 
     return (
         <section className="section-feedback">
@@ -33,11 +31,11 @@ const Page = async ({params} : RouteParams) => {
                 <div className="flex flex-row items-center gap-6 justify-center">
                     <div className="flex flex-row gap-2">
                         <Image src="/star.svg" alt="star" width={22} height={22} />
-                        <p>Overall Impression: <span className="text-purple-200 font-bold">{feedback?.totalScore}</span>/100</p>
+                        <p>Overall Impression: <span className="text-purple-600 font-bold">{feedback?.totalScore}</span>/100</p>
                     </div>
                     <div className="flex flex-row gap-2">
                         <Image src="/calendar.svg" alt="star" width={22} height={22} />
-                        <p className="text-purple-200 font-bold">
+                        <p className="text-purple-900 font-bold">
                             {feedback?.createdAt
                                 ? dayjs(feedback.createdAt).format("MMM D, YYYY")
                                 : 'N/A'}
@@ -52,7 +50,7 @@ const Page = async ({params} : RouteParams) => {
                     <h3>Breakdown of Evaluation:</h3>
                     {feedback?.categoryScores.map((item,key) => (
                         <div key={key}>
-                            <p className="font-semibold text-blue-200">{`${key+1}. ${item.name} (${Math.floor(item.score/100*20)}/20)`}</p>
+                            <p className="font-semibold text-blue-900">{`${key+1}. ${item.name} (${Math.floor(item.score/100*20)}/20)`}</p>
                             <p className="pl-4">{item.comment}</p>
                         </div>
                     ))}
@@ -61,7 +59,7 @@ const Page = async ({params} : RouteParams) => {
                     <h3>Areas for Improvement:</h3>
                     <ul>
                         {feedback?.areasForImprovement.map((item, key)=>(
-                            <li key={key}>
+                            <li key={key} className="text-purple-900">
                                 <span>{item}</span>
                             </li>
                         ))}

@@ -24,12 +24,12 @@ const Page = async () => {
             <section className="card-cta">
                 <div className="flex flex-col gap-6 max-w-lg">
                     <h2>Get Interview-Ready with AI-Powered Practice & Feedback</h2>
-                    <p className="text-lg">Practice on real interview questions & get instant feedback</p>
+                    <p className="text-lg !text-purple-950">Practice on real interview questions & get instant feedback</p>
                     <Button className="max-sm:w-full btn-primary">
                         <Link href="/interview">Start an Interview</Link>
                     </Button>
                 </div>
-                <Image src="/robot.png" alt="AI-reobot" width={400} height={400} className="max-sm:hidden" />
+                <Image src="/bot-interview.png" alt="AI-reobot" width={400} height={400} className="max-sm:hidden" />
             </section>
 
             <section className="felx flex-col gap-6 mt-8">
