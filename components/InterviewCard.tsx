@@ -44,7 +44,7 @@ const InterviewCard = async ({id, userId, role, type, techstack, createdAt} : In
                         ? `/interview/${id}/feedback`
                         : `/interview/${id}`
                         }>
-                            {feedback ? 'Check Feedback' : 'View Interview'}
+                            {feedback ? 'Check Feedback' : 'Start Interview'}
                         </Link>
                     </Button>
                 </div>

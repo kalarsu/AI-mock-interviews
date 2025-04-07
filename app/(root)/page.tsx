@@ -26,7 +26,7 @@ const Page = async () => {
                     <h2>Ace Your Interviews with AI-Powered Practice & Instant Feedback</h2>
                     <p className="text-lg !text-purple-950">Sharpen your skills with real questions and insights that matter.</p>
                     <Button className="max-sm:w-full btn-primary">
-                        <Link href="/interview">Start an Interview</Link>
+                        <Link href="/interview">Preparing Your Interview Now</Link>
                     </Button>
                 </div>
                 <Image src="/bot-interview.gif" alt="AI-reobot" width={400} height={400} className="max-sm:hidden" />
