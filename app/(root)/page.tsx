@@ -3,15 +3,20 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import InterviewCard from "@/components/InterviewCard";
-import {getCurrentUser} from "@/lib/actions/auth.action";
+import {getCurrentUser, isAuthenticated} from "@/lib/actions/auth.action";
 import {getInterviewsByUserId, getLatestInterviews} from "@/lib/actions/general.action";
 
 const Page = async () => {
-    const user = await getCurrentUser();
+    const isUserAuthenticated = await isAuthenticated();
+    let userId:string = "";
+    if(isUserAuthenticated) {
+        const user = await getCurrentUser();
+        userId = user?.id || "";
+    }
 
     const [userInterviews, latestInterviews] = await Promise.all([
-        await getInterviewsByUserId(user?.id!),
-        await getLatestInterviews({userId: user?.id!})
+        await getInterviewsByUserId(userId),
+        await getLatestInterviews({userId: userId})
     ]); //Parallel loading multiple await when one doesn't reply on the other, double the speed
     // const userInterviews = await getInterviewsByUserId(user?.id!);
     // const latestInterviews = await getLatestInterviews({userId: user?.id!});
@@ -43,8 +48,6 @@ const Page = async () => {
                             <p>You haven&apos;t taken any interviews yet</p>
                         )
                     }
-
-
                 </div>
             </section>
 

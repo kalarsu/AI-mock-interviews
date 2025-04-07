@@ -1,8 +1,12 @@
 import React from 'react'
 import Agent from "@/components/Agent";
-import {getCurrentUser} from "@/lib/actions/auth.action";
+import {getCurrentUser, isAuthenticated} from "@/lib/actions/auth.action";
+import {redirect} from "next/navigation";
 
 const Page = async () => {
+    const isUserAuthenticated = await isAuthenticated();
+    if(!isUserAuthenticated) redirect('/sign-in');
+
     const user = await getCurrentUser();
 
     return (
