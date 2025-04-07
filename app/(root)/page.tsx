@@ -32,7 +32,7 @@ const Page = async () => {
                 <Image src="/bot-interview.gif" alt="AI-reobot" width={400} height={400} className="max-sm:hidden" />
             </section>
 
-            <section className="felx flex-col gap-6 mt-8">
+            <section id="your-interview" className="felx flex-col gap-6 mt-8">
                 <h2>Your Interviews</h2>
                 <div className="interviews-section">
                     {
