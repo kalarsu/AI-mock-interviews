@@ -1,5 +1,5 @@
 import React from 'react'
-import {getCurrentUser} from "@/lib/actions/auth.action";
+import {getCurrentUser, isAuthenticated} from "@/lib/actions/auth.action";
 import {getFeedbackByInterviewId, getInterviewsById} from "@/lib/actions/general.action";
 import {redirect} from "next/navigation";
 import Image from "next/image";
@@ -8,6 +8,8 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 
 const Page = async ({params} : RouteParams) => {
+    const isUserAuthenticated = await isAuthenticated();
+    if(!isUserAuthenticated) redirect('/sign-in');
     const {id:interviewId} = await params;
     const user = await getCurrentUser();
 

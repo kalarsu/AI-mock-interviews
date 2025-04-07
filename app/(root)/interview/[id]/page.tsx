@@ -4,10 +4,13 @@ import {redirect} from "next/navigation";
 import Image from "next/image";
 import {getRandomInterviewCover} from "@/lib/utils";
 import DisplayTechIcons from "@/components/DisplayTechIcons";
-import {getCurrentUser} from "@/lib/actions/auth.action";
+import {getCurrentUser, isAuthenticated} from "@/lib/actions/auth.action";
 import Agent from "@/components/Agent";
 
 const Page = async ({params}: RouteParams) => { //get url params
+    const isUserAuthenticated = await isAuthenticated();
+    if(!isUserAuthenticated) redirect('/sign-in');
+
     const {id} = await params;
     const user = await getCurrentUser();
     const interview = await getInterviewsById(id);
