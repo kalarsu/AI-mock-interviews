@@ -121,6 +121,7 @@ const AuthForm = ({type}: {type:FormType}) => {
                             placeholder="Enter your Password"
                             type="password"
                         />
+                        <p className="-mt-5 ml-5 text-sm font-light text-gray-800">Password must be at least 6 characters or digits.</p>
                         <Button type="submit" className="btn">
                             {isSignin ? "Submit" : "Create an Account"}
                         </Button>
