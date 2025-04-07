@@ -88,7 +88,7 @@ const Agent = ({userName, userId, type, interviewId, questions}:AgentProps) => {
 
     const handleCall = async ()=> {
         setCallStatus(CallStatus.CONNECTING);
-        console.log('interview type=', type);
+        // console.log('interview type=', type);
         if(type==="generate"){
             await vapi.start(process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID!, {
                 variableValues: {
@@ -152,7 +152,13 @@ const Agent = ({userName, userId, type, interviewId, questions}:AgentProps) => {
 
             <div className="w-full flex justify-center">
                 {callStatus !== 'ACTIVE' ? (
-                    <button className="relative btn-call" onClick={handleCall}>
+                    <button
+                        disabled = {callStatus === CallStatus.FINISHED}
+                        className={cn(
+                            "relative btn-call",
+                            callStatus === CallStatus.FINISHED  && "bg-gray-500"
+                        )}
+                        onClick={handleCall}>
                         <span
                             className={cn(
                                 "absolute animate-ping rounded-full opacity-75",
@@ -160,7 +166,7 @@ const Agent = ({userName, userId, type, interviewId, questions}:AgentProps) => {
                             )}
                         />
                         <span className="relative">
-                            {isCallInactiveOrFinished ? 'Call' : '...'}
+                            {isCallInactiveOrFinished ? 'Call' : 'Processing...'}
                         </span>
                     </button>
                 ):(

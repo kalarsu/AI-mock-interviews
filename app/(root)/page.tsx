@@ -33,7 +33,7 @@ const Page = async () => {
             </section>
 
             <section id="your-interview" className="felx flex-col gap-6 mt-8">
-                <h2>Your Interviews</h2>
+                <h2 className="mb-4">Your Interviews</h2>
                 <div className="interviews-section">
                     {
                         hasPastInterviews ? (
@@ -49,7 +49,7 @@ const Page = async () => {
             </section>
 
             <section className="felx flex-col gap-6 mt-8">
-                <h2>Take an Interview</h2>
+                <h2 className="mb-4">Try Interviews Made by Others</h2>
                 <div className="interviews-section">
                     {
                         hasUpCommingInterviews ? (
