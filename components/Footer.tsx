@@ -8,7 +8,7 @@ const Footer = () => {
             <div className="flex flex-col justify-center items-center w-full">
                 <p>
                     <span className="font-semibold">Built with: </span>
-                    <span>React · Next.js · TypeScript · Tailwind CSS · Vapi AI Voice· Google Gemini · Vercel AI SDK · Firebase</span>
+                    <span>React · Next.js · TypeScript · Tailwind CSS · Vapi AI Voice · Google Gemini · Vercel AI SDK · Firebase</span>
                 </p>
                 <p>
                     <span className="font-semibold">Hosted on: </span>
