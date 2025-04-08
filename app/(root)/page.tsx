@@ -5,6 +5,7 @@ import Image from "next/image";
 import InterviewCard from "@/components/InterviewCard";
 import {getCurrentUser, isAuthenticated} from "@/lib/actions/auth.action";
 import {getInterviewsByUserId, getLatestInterviews} from "@/lib/actions/general.action";
+import Footer from "@/components/Footer";
 
 const Page = async () => {
     const isUserAuthenticated = await isAuthenticated();
@@ -64,6 +65,7 @@ const Page = async () => {
                     }
                 </div>
             </section>
+            <Footer />
         </>
     )
 }
